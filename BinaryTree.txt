@@ -1,0 +1,346 @@
+/* package whatever; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class BTNode<T>{
+	T data;
+	BTNode<T> left;
+	BTNode<T> right;
+	BTNode(T data){
+		this.data=data;
+	}
+}
+class Ideone
+{
+public static void PrintNormalBT(BinaryTreeNode<Integer> root){
+		if(root == null){
+		    return ;	
+		}
+		System.out.println(root.data);
+		 
+		PrintNormalBT(root.left);
+		PrintNormalBT(root.right);
+	} 
+public static void PrintLevelwithLCandRC(BinaryTreeNode<Integer> root){
+		if(root==null){
+		    return ;	
+		}
+        System.out.println(); 
+        System.out.print(root.data);
+        if(root.left!=null)
+        System.out.print(" L : "+root.left.data);
+        else
+        System.out.print(" L : "+" -1 ");
+        
+        if(root.right!=null)
+        System.out.print(" R : "+root.right.data);
+        else
+        System.out.print(" R : "+" -1 ");
+        
+		PrintLevelwithLCandRC(root.left);
+		PrintLevelwithLCandRC(root.right);
+	}
+    public static int heightBT(BinaryTreeNode<Integer> root){
+       if(root==null){
+         return 0;
+       }
+      return Math.max(heightBT(root.left),heightBT(root.right))+1; 
+    }
+    public static int HeightofBT(BinaryTreeNode<Integer> root){
+       return heightBT(root)-1;
+    }
+    public static  LinkedList<BinaryTreeNode<Integer>> queue1 = new LinkedList<>();
+  public static void TraverseLevelWise(BinaryTreeNode<Integer> root){
+        if(root==null){
+            return ;
+        }
+        if(root != null){
+            queue1.addLast(root);
+        }
+        TraverseLevelWise(root.left);
+        TraverseLevelWise(root.right);
+    }
+    public static void CreateBTTraverseQueue(BinaryTreeNode<Integer> root){
+        System.out.println("Queue is ....");
+      queue1.clear();
+//        System.out.println(queue1);
+  TraverseLevelWise(root);
+      Iterator<BinaryTreeNode<Integer>> itr=queue1.iterator();  
+        while(itr.hasNext()){  
+        System.out.print(itr.next().data+" ");  
+        }  
+    }
+    public static void printLevelWise(BinaryTreeNode<Integer> root){
+		 PrintLevelwithLCandRC(root); 
+         System.out.println("\n%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+         PrintNormalBT(root);
+        System.out.println("\n^^^^^^^^^^^^^^^^^^^^^^^^^^");
+        CreateBTTraverseQueue(root);
+	}
+
+
+
+	public static Scanner scanner = new Scanner(System.in);
+	public static BTNode<Integer>  CreateBT(){
+		System.out.println("Enter the data");
+		int data = scanner.nextInt();
+		if(data==-1){
+			return null;
+		}
+		BTNode<Integer> root = new BTNode<>(data);
+		System.out.println("Enter the Left data");
+		root.left = CreateBT();
+		System.out.println("Enter the Right data");
+		root.right =CreateBT();
+		return root;
+	}
+	 
+	public static void main (String[] args) throws java.lang.Exception
+	{
+	  
+	}
+}
+
+
+
+/////
+
+/*package whatever //do not write package name here */
+
+import java.io.*;
+import java.util.*;
+import java.lang.*;
+
+class BinaryTreeNode<T> {
+		T data;
+		BinaryTreeNode<T> left;
+		BinaryTreeNode<T> right;
+
+		public BinaryTreeNode(T data) {
+			this.data = data;
+		}
+	}
+class GFG {
+    public static Scanner s = new Scanner(System.in);
+    public static  LinkedList<BinaryTreeNode<Integer>> queue1 = new LinkedList<>();
+    public static  BinaryTreeNode<Integer> CreateBTQueue(){
+       System.out.println("Enter the data");
+       int d = s.nextInt();
+       BinaryTreeNode<Integer> root = new BinaryTreeNode<>(d);
+       LinkedList<BinaryTreeNode<Integer>> queue = new LinkedList<>();
+       queue.addLast(root);
+       queue1.addLast(root);
+       while(!queue.isEmpty()){
+           BinaryTreeNode<Integer> current = queue.removeFirst();
+           System.out.println("Enter left data...");
+           int ld = s.nextInt();
+           if(ld!=-1){
+               current.left = new BinaryTreeNode<>(ld);
+               queue.addLast(current.left);
+               queue1.addLast(current.left);
+           }
+           System.out.println("Enter right data...");
+           int rd = s.nextInt();
+           if(rd!=-1){
+               current.right = new BinaryTreeNode<>(rd);
+               queue.addLast(current.right);
+               queue1.addLast(current.right);
+               }
+       }
+    
+       return root;
+    }
+    public static void PrintLevelwithLCandRC(BinaryTreeNode<Integer> root){
+		if(root==null){
+		    return ;	
+		}
+        System.out.println(); 
+        System.out.print(root.data);
+        if(root.left!=null)
+        System.out.print(" L : "+root.left.data);
+        else
+        System.out.print(" L : "+" -1 ");
+        
+        if(root.right!=null)
+        System.out.print(" R : "+root.right.data);
+        else
+        System.out.print(" R : "+" -1 ");
+        
+		PrintLevelwithLCandRC(root.left);
+		PrintLevelwithLCandRC(root.right);
+	}
+
+    public static void TraverseLevelWise(){
+        
+    }
+    public static void CreateBTTraverseQueue(){
+        System.out.println("Queue is ....");
+        System.out.println(queue1);
+      Iterator<BinaryTreeNode<Integer>> itr=queue1.iterator();  
+        while(itr.hasNext()){  
+        System.out.println(itr.next().data);  
+        }  
+    }
+	public static void main (String[] args) {
+	PrintLevelwithLCandRC(CreateBTQueue());
+	System.out.println("\n$$$$$$$$$$$$$$$$$$$$$$$");
+    CreateBTTraverseQueue();
+	 }
+}
+
+/////
+
+5 6 -1 -1 7 1 -1 -1 2 -1 -1
+5 6 10 2 3 -1 -1 -1 -1 -1 9 -1 -1
+1 -1 2 -1 5 3 -1 4 -1 -1 6 -1 -1
+1 L :  -1  R : 2
+2 L :  -1  R : 5
+5 L : 3 R : 6
+3 L :  -1  R : 4
+4 L :  -1  R :  -1 
+6 L :  -1  R :  -1 
+ Queue is ....
+1
+2
+5
+3
+6
+4
+8 3 10 1 6 -1 14 -1 -1 4 7 13 -1 -1 -1 -1 -1 -1 -1
+8:L:3,R:10
+3:L:1,R:6
+10:L:-1,R:14
+1:L:-1,R:-1
+6:L:4,R:7
+14:L:13,R:-1
+4:L:-1,R:-1
+7:L:-1,R:-1
+13:L:-1,R:-1
+
+
+8 L : 3 R : 10
+3 L : 1 R : 6
+1 L :  -1  R :  -1 
+6 L : 4 R : 7
+4 L :  -1  R :  -1 
+7 L :  -1  R :  -1 
+10 L :  -1  R : 14
+14 L : 13 R :  -1 
+13 L :  -1  R :  -1 
+
+
+
+
+
+/*package whatever //do not write package name here */
+
+import java.io.*;
+import java.util.*;
+import java.lang.*;
+
+class BinaryTreeNode<T> {
+		T data;
+		BinaryTreeNode<T> left;
+		BinaryTreeNode<T> right;
+
+		public BinaryTreeNode(T data) {
+			this.data = data;
+		}
+	}
+class GFG {
+    public static Scanner s = new Scanner(System.in);
+    public static  LinkedList<BinaryTreeNode<Integer>> queue1 = new LinkedList<>();
+    public static  BinaryTreeNode<Integer> CreateBTQueue(){
+       System.out.println("Enter the data");
+       int d = s.nextInt();
+       BinaryTreeNode<Integer> root = new BinaryTreeNode<>(d);
+       LinkedList<BinaryTreeNode<Integer>> queue = new LinkedList<>();
+       queue.addLast(root);
+       queue1.addLast(root);
+       while(!queue.isEmpty()){
+           BinaryTreeNode<Integer> current = queue.removeFirst();
+           System.out.println("Enter left data...");
+           int ld = s.nextInt();
+           if(ld!=-1){
+               current.left = new BinaryTreeNode<>(ld);
+               queue.addLast(current.left);
+               queue1.addLast(current.left);
+           }
+           System.out.println("Enter right data...");
+           int rd = s.nextInt();
+           if(rd!=-1){
+               current.right = new BinaryTreeNode<>(rd);
+               queue.addLast(current.right);
+               queue1.addLast(current.right);
+               }
+       }
+    
+       return root;
+    }
+    public static void PrintLevelwithLCandRC(BinaryTreeNode<Integer> root){
+		if(root==null){
+		    return ;	
+		}
+        System.out.println(); 
+        System.out.print(root.data);
+        if(root.left!=null)
+        System.out.print(" L : "+root.left.data);
+        else
+        System.out.print(" L : "+" -1 ");
+        
+        if(root.right!=null)
+        System.out.print(" R : "+root.right.data);
+        else
+        System.out.print(" R : "+" -1 ");
+        
+		PrintLevelwithLCandRC(root.left);
+		PrintLevelwithLCandRC(root.right);
+	}
+
+    public static void TraverseLevelWise(BinaryTreeNode<Integer> root){
+        if(root==null){
+            return ;
+        }
+        if(root != null){
+            queue1.addLast(root);
+        }
+        TraverseLevelWise(root.left);
+        TraverseLevelWise(root.right);
+    }
+    public static void CreateBTTraverseQueue(){
+        System.out.println("Queue is ....");
+        System.out.println(queue1);
+      Iterator<BinaryTreeNode<Integer>> itr=queue1.iterator();  
+        while(itr.hasNext()){  
+        System.out.print(itr.next().data+" ");  
+        }  
+    }
+    public static BinaryTreeNode<Integer>  CreateBT(){
+		System.out.println("Enter the data");
+		int data = s.nextInt();
+		if(data==-1){
+			return null;
+		}
+		BinaryTreeNode<Integer> root = new BinaryTreeNode<>(data);
+		System.out.println("Enter the Left data");
+		root.left = CreateBT();
+		System.out.println("Enter the Right data");
+		root.right =CreateBT();
+		return root;
+	}
+	public static void main (String[] args) {
+	 //   BinaryTreeNode<Integer> root = CreateBTQueue();
+	BinaryTreeNode<Integer> root2 = CreateBT();
+	PrintLevelwithLCandRC(root2);
+	System.out.println("\n$$$$$$$$$$$$$$$$$$$$$$$");
+    CreateBTTraverseQueue();
+         queue1.clear();
+     TraverseLevelWise(root2);
+     System.out.println("Hackerrank...");
+    CreateBTTraverseQueue();
+     
+	 }
+}

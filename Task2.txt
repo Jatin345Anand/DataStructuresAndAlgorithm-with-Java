@@ -1,0 +1,196 @@
+Task 3
+What is Use of Big Theta and Omega Analysis?
+
+Big Theta :
+ The theta notation bounds a functions from above and below, so it defines exact asymptotic behavior.
+A simple way to get Theta notation of an expression is to drop low order terms and ignore leading constants. For example, consider the following expression.
+3n3 + 6n2 + 6000 = T(n3)
+Dropping lower order terms is always fine because there will always be a n0 after which T(n3) has higher values than Tn2) irrespective of the constants involved.
+For a given function g(n), we denote T(g(n)) is following set of functions.
+
+Mathematical Proof:
+T(g(n)) = {f(n): there exist positive constants c1, c2 and n0 such 
+                 that 0 <= c1*g(n) <= f(n) <= c2*g(n) for all n >= n0}
+The above definition means, if f(n) is theta of g(n), then the value f(n) is always between c1*g(n) and c2*g(n) for large values of n (n >= n0). The definition of theta also requires that f(n) must be non-negative for values of n greater than n0.
+
+here f(n)=T(g(n)). …….equation 3
+  or C1*( g(n) ) <= f(n) <= C2* (g(n)). 
+g(n) is the time complexity expression of the algorithm.
+where n>=n0 , n0>=1 and c>=1 always
+assume …
+Here first is C1*g(n) <= f(n).
+f(n)=3n+2
+g(n)=n
+put the value in equation . 
+3n+2 = O(n).
+or 3n+2 >= C1.n
+for C1=1
+3n+2>=n.
+n=1,2,3,4….
+the equation 3 is satisfied.
+
+Here second is f(n) <= C2 * g(n).
+f(n)=3n+2
+g(n)=n
+put the value in equation 3. 
+3n+2 = O(n).
+or 3n+2 <= C2.n
+for C2=4
+3n+2 <=4n.
+n=2,3,4….
+the equation 2 is satisfied.
+
+Uses:
+Here T(n) function is always less then from f(n) and greater then f(n) also,So Big T notation defines an average bound of an algorithm, it bounds a function only from average.This is for AVERAGE case Time Complexity.
+Example : If TC of algorithm is log(n),n^2,n^3 and log(log(n)) etc.
+
+Big Omega :
+The Big O notation defines an upper bound of an algorithm, it bounds a function only from above. For example, consider the case of Insertion Sort. It takes linear time in best case and quadratic time in worst case. We can safely say that the time complexity of Insertion sort is O(n^2). Note that O(n^2) also covers linear time.
+
+If we use T notation to represent time complexity of Insertion sort, we have to use two statements for best and worst cases:
+1. The worst case time complexity of Insertion Sort is T(n^2).
+2. The best case time complexity of Insertion Sort is T(n).
+
+The Big O notation is useful when we only have upper bound on time complexity of an algorithm. Many times we easily find an upper bound by simply looking at the algorithm.
+
+
+
+
+
+O(g(n)) = { f(n): there exist positive constants c and 
+                  n0 such that 0 <= f(n) <= cg(n) for 
+                  all n >= n0}
+here f(n)=O(g(n)). …….equation 1
+  or f(n)<=C. g(n). 
+g(n) is the time complexity expression of the algorithm.
+where n>=n0 , n0>=1 and c>1 always
+assume …
+f(n)=3n+2
+g(n)=n
+put the value in equation 1. 
+3n+2 = O(n).
+or 3n+2 <= C.n
+for C=4
+3n+2<=4n.
+n=2,3,4….
+the equation 1 is satisfied.
+Here O(n) function is always greater then from f(n) ,So Big O notation defines an upper bound of an algorithm, it bounds a function only from above.This is for WORST case Time Complexity.
+Example : If TC of algorithm is n^2,n^3….n^n and 2^n etc.
+
+
+What is Mathematical analysis of few non-recursive and recursive Algorithm?
+1.Recusive Algorithm :
+A recursive algorithm is an algorithm which calls itself with "smaller (or simpler)" input values, and which obtains the result for the current input by applying simple operations to the returned value for the smaller (or simpler) input.Simply we use recursion to solving the problem in shortest time and best Time Complexity.Recursive Algorithm help in Data Structures and String Problems like LinkedList ,Stack ,Binary Tree ,Binary Search Tree ,Queue ,String Permutation ,String Substring and String SubSequence  etc.
+
+Example : We have to calculate the power of Two for given Number using Recursion.
+Algorithm for computing the k-th power of 2 
+
+Algorithm 1   Power_of_2(natural number k) 
+Input: k , a natural number 
+Output: k-th power of 2 
+
+Algorithm: 
+if k = 0, then return 1; 
+else return 2*Power_of_2(k - 1) . 
+
+By way of comparison, let us see how the same problem can be solved by an iterative algorithm. 
+
+
+ 
+Above Example Algorithm 1 is used Recursion and Algorithm 2-a is not used Recursion.
+Mathematical analysis Of Above Example:
+
+Here we have line.  = 2*Power_of_2(k - 1) . 
+if(k==0{
+return 1;
+}
+// this is base case of Recursion algoruthm.
+Base case must have every type of Recursive problem .It help to divide the input in smaller part. So. if case is the base case of above problem.
+after that if(k==1){
+return 2*Power_of_2(1);
+}
+we got 2*1=2.
+if(k==2){
+return 2*Power_of_2(1);
+}
+we got 2*2=4;
+if(k==3){
+return 2*Power_of_2(2);
+}
+we got 2*4=8;
+k=4,5,6,7……..And so on.
+Use Recursive Algorithm.
+Example :In Sorting Quick Sort,Merge Sort
+2.Non Recursive Algorithm
+A non-recursive technique is anything that doesn't use recursion. Insertion sort is a simple example of a non-recursive sorting algorithm.any recursive algorithm can be implemented as an iterative algorithm, and vice versa (take a look at this post). Iteration or recursion - it's just an implementation detail; although it can have a major impact in performance depending on the choice, the algorithm will be the same nevertheless.
+Basically A Non-Recursive Problem is Iterative Problem.Basically, recursion can be used to replace "iteration" (loops) and to replace accompanying array allocations (with variables local to the function body). But not every iterative or array-using function can be effectively converted to its recursive equivalent.
+Algorithm Example:
+
+Algorithm 1-a   Power_of_2(natural number k) 
+Input: k , a natural number 
+Output: k-th power of 2 
+
+Algorithm: 
+1.int   i, power;
+2i := 0;
+3.power := 1;
+4.while( i < k ) { 
+5.          power := power * 2; 
+6.          i :=  i + 1; 
+7.} 
+return power . 
+Mathematical analysis of Above Example:
+
+Above Example is based on Iterative Problem or we can say it is Non-Recursive Problem.
+So using Loop We have to find Power of 2 for given number.
+Line 2 is initiate the variable l .l will help to reach given number k.
+Line 5 help to simultaneously generate power.
+Line 6 l is increase …
+
+  
+
+Use Non-Recursive Algorithm.
+Example :In Sorting Insertion Sort,Bubble Sort
+
+What is Proof of Correctness?
+In theoretical computer science, correctness of an algorithm is asserted when it is said that the algorithm is correct with respect to a specification. Functional correctness refers to the input-output behaviour of the algorithm (i.e., for each input it produces the expected output).If we have a problem and we have to solve using algorithm then we will find best algorithm .we will find correctness of Algorithm like Running time and taking space or memory.
+Generally Correctness of an Algorithm has 3 step.
+Step 1. Statement to be proven.
+Step 2. List all assumptions.
+Step 3. Chain of reasoning from assumptions to the statement.
+Explanation : Step 1 tells about Given object of the problem must be solve and accept all type of problem given.
+step 2 tells about list all assumption like inputs and requirement of problem must be solve by using algorithm.
+step 3 tells about the given object statement and inputs has some query and we have to clear all type of queries using algorithm.
+
+
+What is Hamiltonion Circuit Problem?
+ This article is about the specific problem of determining whether a Hamiltonian path or cycle exists in a given graph. For the general graph theory concepts, see Hamiltonian path.In the mathematical field of graph theory the Hamiltonian path problem and the Hamiltonian cycle problem are problems of determining whether a Hamiltonian path (a path in an undirected or directed graph that visits each vertex exactly once) or a Hamiltonian cycle exists in a given graph (whether directed or undirected). Both problems are NP-complete.There is a simple relation between the problems of finding a Hamiltonian path and a Hamiltonian cycle. In one direction, the Hamiltonian path problem for graph G is equivalent to the Hamiltonian cycle problem in a graph H obtained from G by adding a new vertex and connecting it to all vertices of G. Thus, finding a Hamiltonian path cannot be significantly slower (in the worst case, as a function of the number of vertices) than finding a Hamiltonian cycle. In the other direction, the Hamiltonian cycle problem for a graph G is equivalent to the Hamiltonian path problem in the graph H obtained by copying one vertex v of G, v', that is, letting v' have the same neighbourhood as v, and by adding two dummy vertices of degree one, and connecting them with v and v', respectively.
+
+This Problem is type of backtracking Problem.
+Backtracking :
+Hamiltonian Path in an undirected graph is a path that visits each vertex exactly once. A Hamiltonian cycle (or Hamiltonian circuit) is a Hamiltonian Path such that there is an edge (in graph) from the last vertex to the first vertex of the Hamiltonian Path. Determine whether a given graph contains Hamiltonian Cycle or not. If it contains, then print the path. Following are the input and output of the required function.
+
+nput:
+A 2D array graph[V][V] where V is the number of vertices in graph and graph[V][V] is adjacency matrix representation of the graph. A value graph[i][j] is 1 if there is a direct edge from i to j, otherwise graph[i][j] is 0.
+
+Output:
+An array path[V] that should contain the Hamiltonian Path. path[i] should represent the ith vertex in the Hamiltonian Path. The code should also return false if there is no Hamiltonian Cycle in the graph.
+
+For example, a Hamiltonian Cycle in the following graph is {0, 1, 2, 4, 3, 0}. There are more Hamiltonian Cycles in the graph like {0, 3, 4, 2, 1, 0}
+
+(0)--(1)--(2)
+ |   / \   |
+ |  /   \  | 
+ | /     \ |
+(3)-------(4)
+And the following graph doesn’t contain any Hamiltonian Cycle.
+(0)--(1)--(2)
+ |   / \   |
+ |  /   \  | 
+ | /     \ |
+(3)      (4) 
+Create an empty path array and add vertex 0 to it. Add other vertices, 
+starting from the vertex 1. Before adding a vertex, check for whether it
+ is adjacent to the previously added vertex and not already added. If we
+ find such a vertex, we add the vertex as part of the solution. If we do
+ not find a vertex then we return false.

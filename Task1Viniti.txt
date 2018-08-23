@@ -1,0 +1,254 @@
+Recursion
+BSR
+12
+1 2 3 4 45 456 667 445 1111 1221 1223 3455
+
+667
+
+QuickSortR
+
+int pivot = arr[high]; 
+
+        int i = low; // index of smaller element
+
+        for (int j=low; j<high; j++)
+
+        {
+
+            // If current element is smaller than or
+
+            // equal to pivot
+
+            if (arr[j] <= pivot)
+
+            {
+
+                
+
+                // swap arr[i] and arr[j]
+
+                int temp = arr[i];
+
+                arr[i] = arr[j];
+
+                arr[j] = temp;
+
+                i++;
+
+ 
+
+            }
+
+        }
+
+ 
+
+        // swap arr[i+1] and arr[high] (or pivot)
+
+        int temp = arr[i];
+
+        arr[i] = arr[high];
+
+        arr[high] = temp;
+
+ 
+
+        return i;
+
+Array
+String 
+Growth of Functions:-
+
+
+What is Growth of Functions?
+
+One of the important criteria in evaluating algorithms is the time it takes to complete a job.This term is related to the algorithm development and analysis.It is basically used for find the efficiency of algorithm using
+time complexity complexity.Each algorithm contain own time complexity(running time of algorithm) and space complexity(taking space during running).So,using the time complexity expression we can draw a graph.Suppose we have many type of time complexity expression.These are given below...
+
+
+
+
+
+
+
+Example :
+Algorithm   SeqSearch(L, n, x) 
+L is an array with n entries indexed 1, .., n, and x is the key to be searched for in L. 
+Output: if x is in L , then output its index, else output 0. 
+
+   index := 1; 
+   while ( index 
+n  and  L[ index ] 
+x ) 
+         index := index + 1 ; 
+   if ( index > n ) , then index := 0 
+   return index . 
+As an example for an estimate of computation time, let us consider the sequential search algorithm. Linear search on a list of n elements. In the absolute worst case, the search must visit every element once. This happens when the value being searched for is either the last element in the list, or is not in the list. However, on average, assuming the value searched for is in the list and each list element is equally likely to be the value searched for, the search visits only n/2 element
+So,time complexity in best ,worst and average is
+Best case : If searched element is got first in the array.
+then O(1).
+Average Case : If searched element is got mid in the array then 
+O(n/2).
+Worst Case : if searched element is got last in the array or may be not in the array.
+then O(n).
+Note: where n is number of step to running the algorithm until end.
+ 
+In nut a shell. same as we find time complexity of different type of algorithm and extract expression like polynomial(n^2),Logarithmic(log(n)) and exponential (2^n) etc. 
+
+Increasing Order
+O(1),log(n),n,nlog(n),n^2,2^n,n!
+
+Significance:To have a meaningful comparison of algorithms, the estimate of computation time must be independent of the programming language, compiler, and computer used; must reflect on the size of the problem being solved; and must not depend on specific instances of the problem being solved.
+
+
+What is Asymptotic Notation?
+Assume we have to write a program for a problem and we have many type of algorithm to implement on the program.Then for taking one best and suitable algorithm we find time and memory of algorithm to implementation of the program.For find time and space we use asymptotic notation. 
+The main idea of asymptotic analysis is to have a measure of efficiency of algorithms that doesn’t depend on machine specific constants, and doesn’t require algorithms to be implemented and time taken by programs to be compared. Asymptotic notations are mathematical tools to represent time complexity of algorithms for asymptotic analysis. The following 3 asymptotic notations are mostly used to represent time complexity of algorithms.
+1) T Notation: 
+
+ The theta notation bounds a functions from above and below, so it defines exact asymptotic behavior.
+A simple way to get Theta notation of an expression is to drop low order terms and ignore leading constants. For example, consider the following expression.
+3n3 + 6n2 + 6000 = T(n3)
+Dropping lower order terms is always fine because there will always be a n0 after which T(n3) has higher values than Tn2) irrespective of the constants involved.
+For a given function g(n), we denote T(g(n)) is following set of functions.
+
+T(g(n)) = {f(n): there exist positive constants c1, c2 and n0 such 
+                 that 0 <= c1*g(n) <= f(n) <= c2*g(n) for all n >= n0}
+The above definition means, if f(n) is theta of g(n), then the value f(n) is always between c1*g(n) and c2*g(n) for large values of n (n >= n0). The definition of theta also requires that f(n) must be non-negative for values of n greater than n0.
+
+here f(n)=T(g(n)). …….equation 3
+  or C1*( g(n) ) <= f(n) <= C2* (g(n)). 
+g(n) is the time complexity expression of the algorithm.
+where n>=n0 , n0>=1 and c>=1 always
+assume …
+Here first is C1*g(n) <= f(n).
+f(n)=3n+2
+g(n)=n
+put the value in equation . 
+3n+2 = O(n).
+or 3n+2 >= C1.n
+for C1=1
+3n+2>=n.
+n=1,2,3,4….
+the equation 3 is satisfied.
+
+Here second is f(n) <= C2 * g(n).
+f(n)=3n+2
+g(n)=n
+put the value in equation 3. 
+3n+2 = O(n).
+or 3n+2 <= C2.n
+for C2=4
+3n+2 <=4n.
+n=2,3,4….
+the equation 2 is satisfied.
+
+Here T(n) function is always less then from f(n) and greater then f(n) also,So Big T notation defines an average bound of an algorithm, it bounds a function only from average.This is for AVERAGE case Time Complexity.
+Example : If TC of algorithm is log(n),n^2,n^3 and log(log(n)) etc.
+
+
+2) Big O Notation: 
+
+The Big O notation defines an upper bound of an algorithm, it bounds a function only from above. For example, consider the case of Insertion Sort. It takes linear time in best case and quadratic time in worst case. We can safely say that the time complexity of Insertion sort is O(n^2). Note that O(n^2) also covers linear time.
+
+If we use T notation to represent time complexity of Insertion sort, we have to use two statements for best and worst cases:
+1. The worst case time complexity of Insertion Sort is T(n^2).
+2. The best case time complexity of Insertion Sort is T(n).
+
+The Big O notation is useful when we only have upper bound on time complexity of an algorithm. Many times we easily find an upper bound by simply looking at the algorithm.
+
+
+
+
+
+O(g(n)) = { f(n): there exist positive constants c and 
+                  n0 such that 0 <= f(n) <= cg(n) for 
+                  all n >= n0}
+here f(n)=O(g(n)). …….equation 1
+  or f(n)<=C. g(n). 
+g(n) is the time complexity expression of the algorithm.
+where n>=n0 , n0>=1 and c>1 always
+assume …
+f(n)=3n+2
+g(n)=n
+put the value in equation 1. 
+3n+2 = O(n).
+or 3n+2 <= C.n
+for C=4
+3n+2<=4n.
+n=2,3,4….
+the equation 1 is satisfied.
+Here O(n) function is always greater then from f(n) ,So Big O notation defines an upper bound of an algorithm, it bounds a function only from above.This is for WORST case Time Complexity.
+Example : If TC of algorithm is n^2,n^3….n^n and 2^n etc.
+
+3.O Notation: Just as Big O notation provides an asymptotic upper bound on a function, O notation provides an asymptotic lower bound.
+
+O Notation< can be useful when we have lower bound on time complexity of an algorithm. As discussed in the previous post, the best case performance of an algorithm is generally not useful, the Omega notation is the least used notation among all three.
+
+For a given function g(n), we denote by O(g(n)) the set of functions.
+
+O (g(n)) = {f(n): there exist positive constants c and
+                  n0 such that 0 <= cg(n) <= f(n) for
+                  all n >= n0}.
+Let us consider the same Insertion sort example here. The time complexity of Insertion Sort can be written as O(n), but it is not a very useful information about insertion sort, as we are generally interested in worst case and sometimes in average case.
+
+here f(n)=O(g(n)). …….equation 2
+  or f(n) >=C. g(n). 
+g(n) is the time complexity expression of the algorithm.
+where n>=n0 , n0>=1 and c>=1 always
+assume …
+f(n)=3n+2
+g(n)=n^2
+put the value in equation 2. 
+3n+2 = O(n).
+or 3n+2 >= C.n^2
+for C=1
+3n+2>=n^2.
+n=1,2,3,4….
+the equation 2 is satisfied.
+Here O (n) function is always less then from f(n) ,So Big O 
+ notation defines an lower bound of an algorithm, it bounds a function only from lower.This is for BEST case Time Complexity.
+Example : If TC of algorithm is log(n) and log(log(n)) etc.
+
+
+
+What is Summation?
+ 
+In mathematics Summation is the addition of a sequence of numbers.The result is their Sum or Total.
+
+If numbers are added sequentially from left to right ,any intermediate result is a partial sum,prefix,or running total of the summation.
+The numbers to be summed (called addends, or sometimes summands) may be integers, rational numbers, real numbers, or complex numbers. Besides numbers, other types of values can be added as well: vectors, matrices, polynomials and, in general, elements of any additive group (or even monoid).
+
+This term is defined by ? sigma Notation.
+
+Example : We have some integers like 1,2,3,4,5,6,7…….100.
+
+We have to add all integers then We can be write as i=1(lower)? 100(upper) .Means We initiate the integer 1 and end with 100.
+
+So, Finally we get …
+
+1+2+3+…..+99+100 = 5050.
+
+OR We can use formula to solve in short time.                 
+
+?n = n(n+1)/2.
+
+where n is last number.
+
+100/(101)/2 = 5050.  
+
+ 
+
+
+here integers are non-sequencial.
+
+
+
+What is Basic Efficiency?
+The Term Basic Efficiency or Algorithm Efficiency is refer to the number of computation Resources use in Algorithm.An algorithm must be analysed to determine its resource usage. Algorithmic efficiency can be thought of as analogous to engineering productivity for a repeating or continuous process.
+Basic efficiency has some classes and these classes are Big O , Big T and Big O .These three classes are used to find best,average and worst case scenario of algorithm which is already discussed in Asymptotic Notations.
+For maximum efficiency we wish to minimize resource usage. However, the various resources (e.g. time, space) cannot be compared directly, so which of two algorithms is considered to be more efficient often depends on which measure of efficiency is considered the most important, e.g. the requirement for high speed, minimum memory usage or some other performance benchmark.
+
+
+Significane:
+Basic Efficiency is used in program optimization ,optimizing compiler,loop optimization and object code optimization. Generally optimization means improvement in algorithm. 

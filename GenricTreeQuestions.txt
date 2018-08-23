@@ -1,0 +1,132 @@
+Task-6:
+
+
+Q1)
+
+Given a generic tree, print the input tree in level wise order. That is, print the elements at same level in one line. Print different levels in differnet lines.
+
+Input format :
+
+Elements in level order form separated by space (as per done in class). Order is - 
+Root_data, n (No_Of_Child_Of_Root), n children, and so on for every element 
+
+Output Format :
+
+Level wise print
+
+Sample Input :
+
+10 3 20 30 40 2 40 50 0 0 0 0 
+
+Sample Output :
+
+10
+20 30 40 
+40 50
+
+Q2) Sum of all nodes
+
+Given a generic tree, count and return the sum of all nodes present in the given tree.
+
+Input format :
+
+Elements in level order form separated by space (as per done in class). Order is - 
+Root_data, n (No_Of_Child_Of_Root), n children, and so on for every element 
+
+Output Format :
+
+Sum of all nodes
+
+Sample Input :
+
+10 3 20 30 40 2 40 50 0 0 0 0 
+
+Sample Output :
+
+190
+
+Q3) Number of Nodes greater than x
+
+Given a tree and an integer x, find and return number of Nodes which are greater than x.
+
+Input format :
+
+Line 1 : Integer x
+
+Line 2 : Elements in level order form separated by space (as per done in class). Order is - 
+Root_data, n (No_Of_Child_Of_Root), n children, and so on for every element 
+
+Output Format :
+
+Count of nodes greater than x
+
+Sample Input 1 :
+
+35
+
+10 3 20 30 40 2 40 50 0 0 0 0 
+
+Sample Output 1 :
+
+3
+
+Sample Input 2 :
+
+10
+
+10 3 20 30 40 2 40 50 0 0 0 0 
+
+Sample Output 2:
+
+5
+
+Q4) Node having sum of children and node is max
+
+Given a tree, find and return the node for which sum of data of all children and the node itself is maximum. In the sum, data of node itself and data of immediate children is to be taken.
+
+Input format :
+
+Line 1 : Elements in level order form separated by space (as per done in class). Order is -
+Root_data, n (No_Of_Child_Of_Root), n children, and so on for every element
+
+Output format : Node with maximum sum.
+
+Sample Input 1 :
+
+5 3 1 2 3 1 15 2 4 5 1 6 0 0 0 0
+
+Sample Output 1 :
+
+1
+
+Q5) Structurally identical
+
+Given two Generic trees, return true if they are structurally identical i.e. they are made of nodes with the same values arranged in the same way.
+
+Input format :
+
+Line 1 : Tree 1 elements in level order form separated by space (as per done in class). Order is -
+Root_data, n (No_Of_Child_Of_Root), n children, and so on for every element
+
+Line 2 : Tree 2 elements in level order form separated by space (as per done in class). Order is -
+Root_data, n (No_Of_Child_Of_Root), n children, and so on for every element
+
+Output format : true or false
+
+Sample Input 1 :
+
+10 3 20 30 40 2 40 50 0 0 0 0 
+10 3 20 30 40 2 40 50 0 0 0 0
+
+Sample Output 1 :
+
+true
+
+Sample Input 2 :
+
+10 3 20 30 40 2 40 50 0 0 0 0 
+10 3 2 30 40 2 40 50 0 0 0 0
+
+Sample Output 2:
+
+false
