@@ -12,15 +12,15 @@ public class PracticeCNLinkedListDS {
 		System.out.println();
 	}
 	
-	public static Node<Integer> FindNodefromKthNodeReverseLL(Node<Integer> head,int k,int i) {
-		Node NewHead = null;
+	public static LinkedListNode<Integer> FindLinkedListNodefromKthLinkedListNodeReverseLL(LinkedListNode<Integer> head,int k,int i) {
+		LinkedListNode NewHead = null;
 		int index =0,c=0;
 		int[] ALL = new int[k];
 		while(index!=k && head!=null) {
 			System.out.println(head.data);
 //			NewHead =head;
 //			NewHead = NewHead.next;
-	//		NewHead = new Node<>(head.data);
+	//		NewHead = new LinkedListNode<>(head.data);
 			ALL[c++] = head.data;
 			index++;
 			head = head.next;
@@ -29,62 +29,62 @@ public class PracticeCNLinkedListDS {
 		System.out.println("LL using Array is...");
 		PrintLL(CreateLinkedList(ALL));
 		PrintLL(ReverseRecursive(CreateLinkedList(ALL)));
-		System.out.println("Node element is "+PrintithPositionNode(ReverseRecursive(CreateLinkedList(ALL)), i));
+		System.out.println("LinkedListNode element is "+PrintithPositionLinkedListNode(ReverseRecursive(CreateLinkedList(ALL)), i));
 
-		NewHead = new Node<>(PrintithPositionNode(ReverseRecursive(CreateLinkedList(ALL)), i));
+		NewHead = new LinkedListNode<>(PrintithPositionLinkedListNode(ReverseRecursive(CreateLinkedList(ALL)), i));
 		return NewHead;
 	}
-	public static Node<Integer> FindNode(Node<Integer> head) {
+	public static LinkedListNode<Integer> FindLinkedListNode(LinkedListNode<Integer> head) {
 		   while(head.data!=-1) {
 			   System.out.println(head.data);
 			   head = head.next;
 		   }
 			return null;
 		}
-	public static Node ReverseRecursive(Node head) {
+	public static LinkedListNode ReverseRecursive(LinkedListNode head) {
 		 
  		if(head.next==null) {
  			return head;
 		}
-		Node finalHead = ReverseRecursive(head.next);
+		LinkedListNode finalHead = ReverseRecursive(head.next);
  		head.next.next=head;
  		head.next=null;
  		return finalHead;  
 	}
 
-	public static Node CreateLinkedList() {
+	public static LinkedListNode CreateLinkedList() {
 		Scanner scanner = new Scanner(System.in);
 		int data = scanner.nextInt();
-		Node head=null;
-		Node tail=null;
+		LinkedListNode head=null;
+		LinkedListNode tail=null;
 		while(data !=-1) {
-			Node node = new Node<>(data);
+			LinkedListNode LinkedListNode = new LinkedListNode<>(data);
 			if(head ==null) {
-				head=node;
-				tail=node;
+				head=LinkedListNode;
+				tail=LinkedListNode;
 			}
 			else {
-				tail.next=node;
+				tail.next=LinkedListNode;
 				tail=tail.next;
 			}
 		 		data = scanner.nextInt();
 		}
  		return head;
 	}
-	public static Node CreateLinkedList(int A[]) {
+	public static LinkedListNode CreateLinkedList(int A[]) {
 		Scanner scanner = new Scanner(System.in);
 		//int data = scanner.nextInt();
 		int i=0;
-		Node head=null;
-		Node tail=null;
+		LinkedListNode head=null;
+		LinkedListNode tail=null;
 		while(i< A.length) {
-			Node node = new Node<>(A[i]);
+			LinkedListNode LinkedListNode = new LinkedListNode<>(A[i]);
 			if(head ==null) {
-				head=node;
-				tail=node;
+				head=LinkedListNode;
+				tail=LinkedListNode;
 			}
 			else {
-				tail.next=node;
+				tail.next=LinkedListNode;
 				tail=tail.next;
 			}
 		 	//	data = scanner.nextInt();
@@ -92,7 +92,7 @@ public class PracticeCNLinkedListDS {
 		}
  		return head;
 	}
-	public static void PrintLL(Node head) {
+	public static void PrintLL(LinkedListNode head) {
 		System.out.println();
 		if(head==null) {
 			return;
@@ -103,7 +103,7 @@ public class PracticeCNLinkedListDS {
 		}
       	System.out.println();
 	}
-	public static int PrintithPositionNode(Node head,int i) {
+	public static int PrintithPositionLinkedListNode(LinkedListNode head,int i) {
 		int lengthLL = LenghtLLItretatively(head);
 		if(i>lengthLL) {
 			return -1;
@@ -119,7 +119,7 @@ public class PracticeCNLinkedListDS {
 		}
 	 	return ans;
 	}
-	public static int FindNodeinLLItreratively(Node head,int n) {
+	public static int FindLinkedListNodeinLLItreratively(LinkedListNode head,int n) {
 		int index = 0;
 		int ans=-1;
 		while(head!=null) {
@@ -134,7 +134,7 @@ public class PracticeCNLinkedListDS {
 		}
  		return ans;
 	}
-	public static int LenghtLLItretatively(Node head) {
+	public static int LenghtLLItretatively(LinkedListNode head) {
 		int c=0;
 		if(head==null) {
 			return 0;
@@ -152,14 +152,14 @@ public class PracticeCNLinkedListDS {
         AL.add(scanner.nextInt());
         System.out.println("AL is ..");
         System.out.println(AL);
-//	  Node head = CreateLinkedList();
+//	  LinkedListNode head = CreateLinkedList();
 //	  PrintLL(head);
 //	  System.out.println("Enter the value of k...");
 //	  int k =scanner.nextInt();
 //	  System.out.println("Enter the value of i...");
 //	  int i =scanner.nextInt();
-//	  System.out.println(FindNodefromKthNodeReverseLL(head,k,i));
-//	  PrintLL(FindNodefromKthNodeReverseLL(head,k,i));
+//	  System.out.println(FindLinkedListNodefromKthLinkedListNodeReverseLL(head,k,i));
+//	  PrintLL(FindLinkedListNodefromKthLinkedListNodeReverseLL(head,k,i));
 	  scanner.close();
 }
 }

@@ -4,23 +4,23 @@ import java.util.Scanner;
 
 public class LinkedListPractice {
 
-	public static Node CreateLinkedList() {
+	public static LinkedListNode CreateLinkedList() {
 		Scanner scanner = new Scanner(System.in);
 		int data = scanner.nextInt();
-		// here we take data integer till -1 and Take memory using new Node(data)...
-		Node head=null;
-		Node tail=null;
+		// here we take data integer till -1 and Take memory using new LinkedListNode(data)...
+		LinkedListNode head=null;
+		LinkedListNode tail=null;
 		while(data !=-1) {
-			Node node = new Node<>(data);
+			LinkedListNode LinkedListNode = new LinkedListNode<>(data);
 			if(head ==null) {
-				head=node;
-				tail=node;
+				head=LinkedListNode;
+				tail=LinkedListNode;
 			}
 			else {
-				tail.next=node;
+				tail.next=LinkedListNode;
 				tail=tail.next;
 			}
-			// here if and else start Linked list with head node and tail node increment till -1.
+			// here if and else start Linked list with head LinkedListNode and tail LinkedListNode increment till -1.
 			// if LL = 1 2 3 -1
 			// then head point to 1 , head.next point to 2 , head.next.next point to 3 Or tail is also point to last element of LL means 3 ...
 			// tali.next point to null....
@@ -33,7 +33,7 @@ public class LinkedListPractice {
 //        System.out.println(tail.next);
 		return head;
 	}
-	public static void PrintLL(Node head) {
+	public static void PrintLL(LinkedListNode head) {
 		System.out.println();
 		if(head==null) {
 			return;
@@ -45,7 +45,7 @@ public class LinkedListPractice {
         // while loop is help to print all Linked List itratively 		
 		System.out.println();
 	}
-	public static int LenghtLLItretatively(Node head) {
+	public static int LenghtLLItretatively(LinkedListNode head) {
 		int c=0;
 		if(head==null) {
 			return 0;
@@ -54,10 +54,10 @@ public class LinkedListPractice {
 			head=head.next;
 			c++;
 		}
-		// here c is counter to count the total number of node in linked list...
+		// here c is counter to count the total number of LinkedListNode in linked list...
 		return c;
 	}
-	public static int FindNodeinLLItreratively(Node head,int n) {
+	public static int FindLinkedListNodeinLLItreratively(LinkedListNode head,int n) {
 		int index = 0;
 		int ans=-1;
 		while(head!=null) {
@@ -77,7 +77,7 @@ public class LinkedListPractice {
 		}
  		return ans;
 	}
-	public static int PrintithPositionNode(Node head,int i) {
+	public static int PrintithPositionLinkedListNode(LinkedListNode head,int i) {
 		int lengthLL = LenghtLLItretatively(head);
 		if(i>lengthLL) {
 			return -1;
@@ -94,11 +94,11 @@ public class LinkedListPractice {
 		// here ith position start with while loop and c is help to reach the position i and get element of Linked List...
 		return ans;
 	}
-	public static Node AppendLastNtoFirst(Node head,int N) {
-		Node head1 =null;
+	public static LinkedListNode AppendLastNtoFirst(LinkedListNode head,int N) {
+		LinkedListNode head1 =null;
 		return head1;
 	}
-	public static void ReverseRecursive(Node head) {
+	public static void ReverseRecursive(LinkedListNode head) {
 
 		 //System.out.println(head.data);
 		
@@ -107,11 +107,11 @@ public class LinkedListPractice {
  			}
  			ReverseRecursive(head.next);
  		//	here  without change any pointer of linked list we did reverse the linked list ...
- 			// until we get  null last element of LL then we call recursive after then we print node data using line 126...
+ 			// until we get  null last element of LL then we call recursive after then we print LinkedListNode data using line 126...
  			System.out.print(head.data+" ");
 	}
 	
-	public static Node RemoveDuplicate(Node head) {
+	public static LinkedListNode RemoveDuplicate(LinkedListNode head) {
 		int duplicateIndex =-1;
 		int index=0;
 		int c=0;
@@ -126,8 +126,8 @@ public class LinkedListPractice {
 		System.out.println("Total Duplicate = "+c);
 		return head;
 	}
-    public static Node DeleteIthNodeItratively(Node head,int i) {
-    	Node Previous =head;
+    public static LinkedListNode DeleteIthLinkedListNodeItratively(LinkedListNode head,int i) {
+    	LinkedListNode Previous =head;
     	if(i==0) {
     		head = head.next;
     	}
@@ -140,8 +140,8 @@ public class LinkedListPractice {
     	System.out.println(i);
     	while(Previous!=null) {
     		
-//    		Node Current =Previous.next;
-//        	Node Forword =Previous.next.next;
+//    		LinkedListNode Current =Previous.next;
+//        	LinkedListNode Forword =Previous.next.next;
         	
     		if(index==i) {
     			System.out.println("P = "+Previous.data);
@@ -157,11 +157,11 @@ public class LinkedListPractice {
     	}
     	return head;
     }
-    public static int FindMiddleElementIndex(Node head) {
+    public static int FindMiddleElementIndex(LinkedListNode head) {
     	int index=0;
     	if(LenghtLLItretatively(head)%2!=0) {
-    		Node slow = head;
-        	Node fast =head.next;
+    		LinkedListNode slow = head;
+        	LinkedListNode fast =head.next;
         	
         	while(slow!=null && fast!=null) {
  
@@ -171,8 +171,8 @@ public class LinkedListPractice {
         	}		
     	}
     	else {
-    		Node slow = head;
-        	Node fast =head;
+    		LinkedListNode slow = head;
+        	LinkedListNode fast =head;
         	
         	while(slow!=null && fast!=null) {
  
@@ -184,65 +184,65 @@ public class LinkedListPractice {
     	}
     	return index;
     }
-    public static Node DeleteMiddleNode(Node head) {
+    public static LinkedListNode DeleteMiddleLinkedListNode(LinkedListNode head) {
     	PrintLL(head);
     	int middleIndex = FindMiddleElementIndex(head);
     	
-    	Node head1 = DeleteIthNodeItratively(head, middleIndex);
+    	LinkedListNode head1 = DeleteIthLinkedListNodeItratively(head, middleIndex);
 //    	System.out.println("Middle Index = "+middleIndex);
-//    	Node MiddleNode =null;
+//    	LinkedListNode MiddleLinkedListNode =null;
 //    	int index =0;
 //    	while(head!=null) {
 //    		
 //    		if(index==middleIndex) {
 //    			System.out.println("Middle Index = "+middleIndex);
 //    			System.out.println("Middle element  = "+head.data);
-//    			MiddleNode = head;
-//    			System.out.println(MiddleNode.data);
-//    			MiddleNode = MiddleNode.next;
-//    			System.out.println(MiddleNode.data);
-//    			MiddleNode.next = MiddleNode.next.next;
-//    		//	System.out.println(MiddleNode.next.data);
+//    			MiddleLinkedListNode = head;
+//    			System.out.println(MiddleLinkedListNode.data);
+//    			MiddleLinkedListNode = MiddleLinkedListNode.next;
+//    			System.out.println(MiddleLinkedListNode.data);
+//    			MiddleLinkedListNode.next = MiddleLinkedListNode.next.next;
+//    		//	System.out.println(MiddleLinkedListNode.next.data);
 ////    			head = head.next;
 ////    			head.next=head.next.next;
 //    		}
 //    		head = head.next;
 //    		index++;
 //    	}
-//    	System.out.println("Middle Node Deleted...");
+//    	System.out.println("Middle LinkedListNode Deleted...");
     	return head1;
     }
 	public static Scanner scanner = new Scanner(System.in);
 	public static void main(String[] args) {
 		System.out.println("Enter the elements of Linked list....");
-	 Node head= CreateLinkedList();
+	 LinkedListNode head= CreateLinkedList();
 	 PrintLL(head);
 	  System.out.println("Length of Linked List...");
 	  System.out.println(LenghtLLItretatively(head));
 	  
-	  PrintLL(DeleteMiddleNode(head));
+	  PrintLL(DeleteMiddleLinkedListNode(head));
 	//  PrintLL(RemoveDuplicate(head));
 	  
 //	  System.out.println("Enter the number to be search in linked list...");
 //	  int n1 = scanner.nextInt() ;
-//	  System.out.println("Your Searched Number's index is "+FindNodeinLLItreratively(head, n1));
+//	  System.out.println("Your Searched Number's index is "+FindLinkedListNodeinLLItreratively(head, n1));
 //      System.out.println("Enter the ith position...");
 //      int i1 = scanner.nextInt();
-//      System.out.println("Your ith Position Data is "+PrintithPositionNode(head, i1));
+//      System.out.println("Your ith Position Data is "+PrintithPositionLinkedListNode(head, i1));
 // 	  ReverseRecursive(head);
 //	  System.out.println();
 //	  System.out.println("Enter the value of n to Append last n element to Front of Linked list...");
 //	  int n2 = scanner.nextInt();
 //	  AppendLastNtoFirst(head,n2);
-//	  System.out.println("Enter the ith position to delete node of Linked List...");
+//	  System.out.println("Enter the ith position to delete LinkedListNode of Linked List...");
 //	  int i2 =scanner.nextInt();
-//	  Node head2= DeleteIthNodeItratively(head,i2);
+//	  LinkedListNode head2= DeleteIthLinkedListNodeItratively(head,i2);
 //	  PrintLL(head2);
 //	  int milldeIndex = FindMiddleElementIndex(head);
 //	  System.out.println("M = "+FindMiddleElementIndex(head));
-//	  PrintLL(DeleteMiddleNode(head));
+//	  PrintLL(DeleteMiddleLinkedListNode(head));
 //	  System.out.println("Enter the elements duplicate and incresing order...");
-//	  Node head3 = CreateLinkedList();
+//	  LinkedListNode head3 = CreateLinkedList();
 //	  RemoveDuplicate(head3);
 	  
   	}

@@ -2,36 +2,36 @@ package LinkedList;
 import java.util.ArrayList;
 import java.util.LinkedList;
 public class LinkedlistImplementation {
-	Node head;
+	LinkedListNode head;
 	public void insert(int data) {
-		Node node = new Node(data);
+		LinkedListNode LinkedListNode = new LinkedListNode(data);
 		if(head==null) {
-			head=node;
+			head=LinkedListNode;
 		}
 		else
 		{
-			Node n = head;
+			LinkedListNode n = head;
 			while(n.next!=null) {
 				n= n.next;
 			}
-			n.next=node;
+			n.next=LinkedListNode;
 			
 		}
 	}
 	
 	public void print() {
-		Node node = head;
-		while(node.next!=null) {
-			System.out.println(node.data);
-			node= node.next;
+		LinkedListNode LinkedListNode = head;
+		while(LinkedListNode.next!=null) {
+			System.out.println(LinkedListNode.data);
+			LinkedListNode= LinkedListNode.next;
 		}
-		System.out.println(node.data);
+		System.out.println(LinkedListNode.data);
 	}
 	public int Lengthiteratively(){
 		int c=0;
-		Node node = head;
-		while(node.next!=null) {
-	 		node= node.next;
+		LinkedListNode LinkedListNode = head;
+		while(LinkedListNode.next!=null) {
+	 		LinkedListNode= LinkedListNode.next;
 			c++;
 		}
 		c++;
